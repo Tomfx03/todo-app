@@ -1,11 +1,11 @@
 export function Headerss(props) {
     const {todos} = props
-    const todosLength= todos.length
+    const todosLength= todos.filter(val => !val.complete).length
 
-    const taskOrTasks = todosLength !== 1 ? 'tasks' : 'task'
+    const taskOrTasks = todosLength == 1 ? 'task' : todosLength == 0 ?'task to complete':'tasks'
     return(
         <header>
-            <h1 className="text-gradient">You have {todosLength} open {taskOrTasks}.</h1>
+            <h1 className="text-gradient">You have {todosLength} {taskOrTasks}.</h1>
         </header>
     )
 } 
